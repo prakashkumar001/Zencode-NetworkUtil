@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.network.utils">
+
+    <application>
+
+        <service android:name="com.network.utils.upload.UploadService"/>
+
+
+    </application>
+
+</manifest>
