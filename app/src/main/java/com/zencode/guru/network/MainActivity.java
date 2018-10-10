@@ -45,7 +45,6 @@ public class MainActivity extends BaseActivity {
     private Button btnSelect;
     File file;
     private String userChoosenTask;
-    private static final String SERVER_PATH = "http://192.168.1.57/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +55,16 @@ public class MainActivity extends BaseActivity {
         //callLogin();
         storage=new EZPhotoPickStorage(this);
 
-        selectImage();
+       // selectImage();
+
+        callLogin();
 
     }
 
        void callLogin()
         {
             try {
-                networkParserHelper=new NetworkParserHelper("http://steats.com/api/login.php","POST", login, new NetWorkResultListener() {
+                networkParserHelper=new NetworkParserHelper("api/login.php","POST", login, new NetWorkResultListener() {
                     @Override
                     public void onSuccess(Object object) {
 
@@ -87,7 +88,7 @@ public class MainActivity extends BaseActivity {
 
         void uploadMultipleImage(List<FileUpload> files)
         {
-            multiPartParserHelper=new MultiPartHelper(this,"http://192.168.1.59/upload/Multipartupload.php","POST", files, new NetWorkResultListener() {
+            multiPartParserHelper=new MultiPartHelper(this,"/upload/Multipartupload.php","POST", files, new NetWorkResultListener() {
                 @Override
                 public void onSuccess(Object object) {
 
